@@ -1,30 +1,21 @@
-import React, {useState, useEffect} from "react";
 import {Login} from "./Components/Login";
 import {Main} from "./Components/Main";
-import {onAuthStateChanged} from "firebase/auth";
-import {app} from "./Components/FireBase";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import {AuthProvider} from "./Contexts/AuthContext";
 
-export function App() {
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        authListener();
-    });
-
-    function authListener() {
-        onAuthStateChanged(app, (user) => {
-            if (user) {
-                setUser(user);
-            } else {
-                setUser(null);
-            }
-        });
-    }
-
+function App() {
     return (
-        <div className="App">
-            {user ? (<Main/>) : (<Login/>)}
+        <div style={{fontFamily: 'Avenir'}}>
+            <Router>
+                <AuthProvider>
+                    <Routes>
+                        <Route path="/main" element={<Main/>}/>
+                        <Route path="/" element={<Login/>}/>
+                    </Routes>
+                </AuthProvider>
+            </Router>
         </div>
     );
 }
+
 export default App;

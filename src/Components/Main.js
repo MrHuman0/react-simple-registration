@@ -14,10 +14,10 @@ export function Main() {
                 //...
             })
     }
-
+    const userCurrent = app.currentUser;
     return (
         <div>
-            <h1>You are logged in...</h1>
+            <h1>You are logged in...{userCurrent.email}</h1>
             <button onClick={logout}>Logout</button>
         </div>
     );
