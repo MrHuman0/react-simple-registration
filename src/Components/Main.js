@@ -1,4 +1,4 @@
-import {app} from "./FireBase";
+import {auth} from "./FireBase";
 import {onAuthStateChanged, signOut} from "firebase/auth";
 import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
@@ -8,14 +8,14 @@ export function Main() {
     const history = useNavigate();
 
     useEffect(() => {
-        onAuthStateChanged(app, (user) => {
+        onAuthStateChanged(auth, (user) => {
             setUser(user);
             if (!user) history('/');
         })
     }, [user, history]);
 
     function logout() {
-        signOut(app)
+        signOut(auth)
             .then(() => {
                 console.log("Succesfully");
                 //...
@@ -25,7 +25,8 @@ export function Main() {
                 //...
             })
     }
-    const userCurrent = app.currentUser;
+
+    const userCurrent = auth.currentUser;
     if (user) {
         return (
             <div>

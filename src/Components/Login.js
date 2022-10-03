@@ -1,5 +1,5 @@
 import React from "react";
-import {app} from "./FireBase";
+import {auth} from "./FireBase";
 import {signInWithEmailAndPassword} from "firebase/auth";
 
 export function Login() {
@@ -8,7 +8,7 @@ export function Login() {
         const email = document.querySelector('#email').value;
         const password = document.querySelector('#password').value;
 
-        signInWithEmailAndPassword(app, email, password)
+        signInWithEmailAndPassword(auth, email, password)
             .then((userCredintal) => {
                 console.log("Succesfully");
                 //...

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate} from 'react-router-dom'
-import {app} from "../Components/FireBase";
+import {auth} from "../Components/FireBase";
 import {onAuthStateChanged} from "firebase/auth";
 
 const AuthContext = React.createContext();
@@ -11,7 +11,7 @@ export const AuthProvider = ({children}) => {
     const history = useNavigate();
 
     useEffect(() => {
-        onAuthStateChanged(app, (user) => {
+        onAuthStateChanged(auth, (user) => {
             setUser(user);
             setLoading(false);
             if (user) history('/main');

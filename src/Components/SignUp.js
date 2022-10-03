@@ -1,5 +1,5 @@
 import React from "react";
-import {app} from "./FireBase";
+import {auth} from "./FireBase";
 import {createUserWithEmailAndPassword} from "firebase/auth";
 
 function SignUp() {
@@ -7,7 +7,7 @@ function SignUp() {
         const email = document.querySelector('#email').value;
         const password = document.querySelector('#password').value;
 
-        createUserWithEmailAndPassword(app, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 console.log("Succesfully");
                 //...
