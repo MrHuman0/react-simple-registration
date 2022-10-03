@@ -47,6 +47,7 @@ export function Login() {
             </div>
             <button style={{margin: '10px'}} onClick={login}>Login</button>
             <button style={{margin: '10px'}} onClick={signUp}>Sign Up</button>
+            <a href="/sign"><h2>SignIn</h2></a>
         </div>
     );
 }

@@ -15,7 +15,7 @@ export const AuthProvider = ({children}) => {
             setUser(user);
             setLoading(false);
             if (user) history('/main');
-            if (!user) history('/');
+            //if (!user) history('/');
         })
     }, [user, history]);
 

@@ -2,6 +2,7 @@ import {Login} from "./Components/Login";
 import {Main} from "./Components/Main";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import {AuthProvider} from "./Contexts/AuthContext";
+import Sign from "./Components/Sign";
 
 function App() {
     return (
@@ -11,8 +12,10 @@ function App() {
                     <Routes>
                         <Route path="/main" element={<Main/>}/>
                         <Route path="/" element={<Login/>}/>
+                        <Route path="/sign" element={<Sign/>}/>
                     </Routes>
                 </AuthProvider>
+
             </Router>
         </div>
     );
