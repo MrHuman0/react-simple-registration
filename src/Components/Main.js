@@ -14,7 +14,7 @@ export function Main() {
         })
     }, [user, history]);
 
-    function logout() {
+    function logOut() {
         signOut(auth)
             .then(() => {
                 console.log("Succesfully");
@@ -31,7 +31,7 @@ export function Main() {
         return (
             <div>
                 <h1>Hello {userCurrent.email}</h1>
-                <button onClick={logout}>Logout</button>
+                <button onClick={logOut}>Sign Out</button>
             </div>
         );
     } else {
