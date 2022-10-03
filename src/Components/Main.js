@@ -4,7 +4,6 @@ import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 export function Main() {
-    //const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
     const history = useNavigate();
 
@@ -30,9 +29,8 @@ export function Main() {
     if (user) {
         return (
             <div>
-                <h1>You are logged in...{userCurrent.email}</h1>
+                <h1>Hello {userCurrent.email}</h1>
                 <button onClick={logout}>Logout</button>
-                <h2>Test</h2>
             </div>
         );
     } else {
